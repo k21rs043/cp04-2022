@@ -65,18 +65,24 @@
     }
 
     #btnD {
+        background-color: red;
+        color: white;
         font-size: 30px;
         position:absolute; top:445px; left:2%; width:30%;
         height:60px;
     }
 
     #btnE {
+        background-color: blue;
+        color:white;
         font-size: 30px;
         position:absolute; top:445px; left:35%; width:30%;
         height:60px;
     }
     
     #btnF {
+        background-color: orange;
+        color: white;
         font-size: 30px;
         position:absolute; top:445px; left:68%; width:30%;
         height:60px;
