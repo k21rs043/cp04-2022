@@ -50,7 +50,7 @@
             });
 
             $('#btnF').click(function(e) {
-                btnEClick(e);
+                btnFClick(e);
             });
             init();
         });
@@ -189,6 +189,13 @@
             audio.play();
         }
 
+        //設定時間が半分過ぎると音が鳴る
+        function half_alarm(){
+            var half_audio = new Audio();
+            half_audio.src = "zyan.wav";
+            half_audio.play();
+        }
+
         // ButtonAがクリックされた時の処理
         function btnAClick(e) {
             active = true;
@@ -218,6 +225,7 @@
             $("#time").html("経過時間： 0");
             $("#remain").html("残り時間： " + period + "秒");
             $('#btnC').prop('disabled', true);
+            $('#btnD').prop('disabled', true);
         }
 
         // ButtonEがクリックされた時の処理
@@ -227,6 +235,7 @@
             $("#time").html("経過時間： 0");
             $("#remain").html("残り時間： " + period + "秒");
             $('#btnC').prop('disabled', true);
+            $('#btnE').prop('disabled', true);
         }
 
         // ButtonFがクリックされた時の処理
@@ -236,8 +245,8 @@
             $("#time").html("経過時間： 0");
             $("#remain").html("残り時間： " + period + "秒");
             $('#btnC').prop('disabled', true);
+            $('#btnF').prop('disabled', true);
         }
-
 
         // 繰り返し実行する処理
         function timer() {
@@ -247,6 +256,11 @@
                 $("#time").html("経過時間： " + time);
                 $("#remain").html("残り時間： " + rest + "秒");
                 analog(rest);
+                if(period % 2 == 0 && time == rest){
+                    half_alarm();
+                }else if(rest - time == 1){
+                    half_alarm();
+                }
             }
             if (rest <= 0) {
                 active = false;
@@ -257,7 +271,6 @@
                 $('#btnE').prop('disabled', false);
                 $('#btnF').prop('disabled', false);
             }
-
         }
     </script>
 </head>
