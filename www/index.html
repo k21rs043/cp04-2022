@@ -48,6 +48,10 @@
             $('#btnE').click(function(e) {
                 btnEClick(e);
             });
+
+            $('#btnF').click(function(e) {
+                btnEClick(e);
+            });
             init();
         });
 
@@ -168,6 +172,7 @@
             $('#btnC').prop('disabled', false);
             $('#btnD').prop('disabled', false);
             $('#btnE').prop('disabled', false);
+            $('#btnF').prop('disabled', false);
         }
 
         // Alarmの処理
@@ -224,6 +229,15 @@
             $('#btnC').prop('disabled', true);
         }
 
+        // ButtonFがクリックされた時の処理
+        function btnFClick(e) {
+            active = false;
+            period = 600;
+            $("#time").html("経過時間： 0");
+            $("#remain").html("残り時間： " + period + "秒");
+            $('#btnC').prop('disabled', true);
+        }
+
 
         // 繰り返し実行する処理
         function timer() {
@@ -241,6 +255,7 @@
                 $('#btnC').prop('disabled', false);
                 $('#btnD').prop('disabled', false);
                 $('#btnE').prop('disabled', false);
+                $('#btnF').prop('disabled', false);
             }
 
         }
@@ -261,6 +276,7 @@
     <button id="btnC">Set</button>
     <button id="btnD">3分</button>
     <button id="btnE">5分</button>
+    <button id="btnF">10分</button>
     <input type="number" id="minute" value=0>
     <input type="number" id="second" value=15>
 </body>
