@@ -196,6 +196,27 @@
             half_audio.play();
         }
 
+        //ボタンＤを押すと鳴る
+        function alarm3(){
+            var alarm3 = new Audio();
+            alarm3.src = "bard.wav";
+            alarm3.play();
+        }
+
+        //ボタンEを押すと鳴る
+        function alarm5(){
+            var alarm5 = new Audio();
+            alarm5.src = "dog.wav";
+            alarm5.play();
+        }
+
+        //ボタンFを押すと鳴る
+        function alarm10(){
+            var alarm10 = new Audio();
+            alarm10.src = "tiger.wav";
+            alarm10.play();
+        }
+
         // ButtonAがクリックされた時の処理
         function btnAClick(e) {
             active = true;
@@ -220,6 +241,7 @@
 
         // ButtonDがクリックされた時の処理
         function btnDClick(e) {
+            alarm3();
             active = false;
             period = 180;
             $("#time").html("経過時間： 0");
@@ -230,6 +252,7 @@
 
         // ButtonEがクリックされた時の処理
         function btnEClick(e) {
+            alarm5();
             active = false;
             period = 300;
             $("#time").html("経過時間： 0");
@@ -240,6 +263,7 @@
 
         // ButtonFがクリックされた時の処理
         function btnFClick(e) {
+            alarm10();
             active = false;
             period = 600;
             $("#time").html("経過時間： 0");
