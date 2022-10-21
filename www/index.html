@@ -164,6 +164,13 @@
         var active = false;
         var startTime = 0;
         var period = 0;
+        var animal = 0;
+        var ibx = 200;
+        var iby = 200;
+        var idx = 200;
+        var idy = 200;
+        var itx = 200;
+        var ity = 200;
 
         // ボタンの初期設定
         function init() {
@@ -217,6 +224,34 @@
             alarm10.play();
         }
 
+        //動物の画像の表示
+        function animals(animal){
+            var canvas = $("#mycanvas")[0];
+            var ctx = canvas.getContext("2d");
+            var bird_img = new Image();
+            bird_img.src = "tori.gif";
+            var dog_img = new Image();
+            dog_img.src = "inu.gif";
+            var tiger_img = new Image();
+            tiger_img.src = "tora.gif";
+            if(animal == 1 ){
+                bird_img.onload = function() {
+                ibx = 200;
+                iby = 200;
+                ctx.drawImage(bird_img, 0, 0, ibx, iby);};
+            } else if(animal == 2){
+                dog_img.onload = function() {
+                idx = 200;
+                idy = 200;
+                ctx.drawImage(dog_img, 0, 0, idx, idy);};
+            } else if(animal == 3){
+                tiger_img.onload = function() {
+                itx = 200;
+                ity = 200;
+                ctx.drawImage(tiger_img, 0, 0, itx, ity);};
+            }
+        }
+
         // ButtonAがクリックされた時の処理
         function btnAClick(e) {
             active = true;
@@ -242,34 +277,37 @@
         // ButtonDがクリックされた時の処理
         function btnDClick(e) {
             alarm3();
+            animal = 1;
+            animals(animal);
             active = false;
             period = 180;
             $("#time").html("経過時間： 0");
             $("#remain").html("残り時間： " + period + "秒");
             $('#btnC').prop('disabled', true);
-            $('#btnD').prop('disabled', true);
         }
 
         // ButtonEがクリックされた時の処理
         function btnEClick(e) {
             alarm5();
+            animal = 2;
+            animals(animal);
             active = false;
             period = 300;
             $("#time").html("経過時間： 0");
             $("#remain").html("残り時間： " + period + "秒");
             $('#btnC').prop('disabled', true);
-            $('#btnE').prop('disabled', true);
         }
 
         // ButtonFがクリックされた時の処理
         function btnFClick(e) {
             alarm10();
+            animal = 3;
+            animals(animal);
             active = false;
             period = 600;
             $("#time").html("経過時間： 0");
             $("#remain").html("残り時間： " + period + "秒");
             $('#btnC').prop('disabled', true);
-            $('#btnF').prop('disabled', true);
         }
 
         // 繰り返し実行する処理
